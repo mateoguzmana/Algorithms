@@ -1,4 +1,4 @@
-# Dress app
+# Javascript Engineering Algorithms
 
 Sophisticated algorithms in Javascript. (Javascript Engineering)
 
