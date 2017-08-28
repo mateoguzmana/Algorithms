@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "React webpack starter template",
   "main": "lib/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "react-router-dom": "^4.2.2"
+  },
   "author": {
     "name": "Krasimir Tsonev",
     "email": "info@krasimirtsonev.com",
