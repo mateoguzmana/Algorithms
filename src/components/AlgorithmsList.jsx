@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import AlgorithmsJsonList from '../data/AlgorithmsJsonList';
 
 export default class AlgorithmsList extends Component {
@@ -15,14 +16,15 @@ export default class AlgorithmsList extends Component {
                     <tbody>
                         {
                             AlgorithmsJsonList.map((data, index) => {
+                                let id = index+1;
                                 return (
-                                    <tr key={index}>
-                                        <td>{index+1}</td>
+                                    <tr key={id}>
+                                        <td>{id}</td>
                                         <td>{data.name}</td>
                                         <td>{data.author}</td>
                                         <td>
                                             <button className="btn btn-info">
-                                                View
+                                                <Link to={`/view/${id}`}>View</Link>
                                             </button>
                                         </td>
                                     </tr>
