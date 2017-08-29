@@ -1,13 +1,13 @@
 let AlgorithmsJsonList;
 export default AlgorithmsJsonList = [
     {
+        id: 1,
         name: "Binary Gap",
         author: "Mateo Guzmán",
-        link: "link"
     },
     {
+        id: 2,
         name: "Odd Occurrences In Array",
         author: "Mateo Guzmán",
-        link: "link"
     }
 ]

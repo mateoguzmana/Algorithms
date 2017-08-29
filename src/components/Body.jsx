@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import AlgorithmsList from './AlgorithmsList';
-import AlgorithmsView from './AlgorithmsView';
+
+//Import algorithms 
+import BinaryGap from './algorithms/BinaryGap';
+import OddOccurrencesInArray from './algorithms/OddOccurrencesInArray';
 
 export default class Body extends Component {
 
     constructor(props) {
         super(props);
+
+        this.views = [
+            <BinaryGap/>,
+            <OddOccurrencesInArray/>
+        ]
+    }
+
+    openView(props){
+        let viewId = props.match.params.id;
+
+        return this.views[viewId-1];
     }
 
     render() {
@@ -15,7 +29,7 @@ export default class Body extends Component {
                 <div className="row">
                 <Switch>
                     <Route exact path='/' component={AlgorithmsList}/>
-                    <Route exact path='/view/:id' component={AlgorithmsView}/>
+                    <Route exact path='/view/:id' render={(props) => ( this.openView(props) )}/>
                 </Switch>
                 </div>
             </div>
