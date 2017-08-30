@@ -8,10 +8,11 @@ export default class AlgorithmsList extends Component {
             <div>
                 <table className="table table-hover">
                     <thead>
-                        <th>Name</th>
-                        <th>Name</th>
-                        <th>Author</th>
-                        <th></th>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Author</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {
