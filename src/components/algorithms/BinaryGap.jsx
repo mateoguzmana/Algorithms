@@ -18,8 +18,24 @@ export default class BinaryGap extends Component {
 
     calculateBinaryGap(){
         let number = this.state.inputNumber;
-        
-        this.printOutput(Number(number).toString(2));
+        let binary = Number(number).toString(2);
+        let gaps = String(binary).split("1");
+        let tempLength = gaps.length;
+        let maximumGap; 
+
+        console.log(gaps);
+
+        if(gaps[tempLength-1]==""){
+            //not delete
+            maximumGap = Math.max.apply(Math, $.map(gaps, function (el) { return el.length }));
+        }else{
+            //delete last element
+            gaps.pop();
+            maximumGap = Math.max.apply(Math, $.map(gaps, function (el) { return el.length }));
+        }
+
+        console.log(maximumGap);
+        this.printOutput(binary);
     }
 
     printOutput(output){
