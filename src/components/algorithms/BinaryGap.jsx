@@ -23,23 +23,21 @@ export default class BinaryGap extends Component {
         let tempLength = gaps.length;
         let maximumGap; 
 
-        console.log(gaps);
-
         if(gaps[tempLength-1]==""){
             //not delete
-            maximumGap = Math.max.apply(Math, $.map(gaps, function (el) { return el.length }));
+            maximumGap = Math.max.apply(Math, Array.prototype.map.call(gaps,function (el) { return el.length; }));
         }else{
             //delete last element
             gaps.pop();
-            maximumGap = Math.max.apply(Math, $.map(gaps, function (el) { return el.length }));
+            maximumGap = Math.max.apply(Math, Array.prototype.map.call(gaps,function (el) { return el.length; }));
         }
 
-        console.log(maximumGap);
-        this.printOutput(binary);
+        this.printOutput(binary, maximumGap);
     }
 
-    printOutput(output){
-        $("#divOutput").html("<h3>"+output+"</h3>");
+    printOutput(binary, maximumGap){
+        $("#outputBinary").html("<h3>"+binary+"</h3>").parent().fadeIn();
+        $("#outputMaximumGap").html("<h3>"+maximumGap+"</h3>").parent().fadeIn();
     }
 
     render() {
@@ -70,7 +68,8 @@ export default class BinaryGap extends Component {
                         </div>
                     </div> 
                     <div className="col-sm-6" id="divOutput">
-
+                        <h2 style={{display:'none'}}>Binary: <span id="outputBinary" ></span></h2>
+                        <h2 style={{display:'none'}}>Maximum Gap: <span id="outputMaximumGap" ></span></h2>        
                     </div> 
                 </div>
             </div>
