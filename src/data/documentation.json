@@ -1,12 +1,12 @@
 {
     "swagger":"2.0",
     "info":{
-       "description":"Dvdendo documentation, if you need to know more about it you could get in touch directly with any Dvdendo's developer .",
+       "description":"Dvdendo API documentation, if you need to know more about it you could get in touch directly with any Dvdendo's developer.",
        "version":"1.0.0",
-       "title":"Dvdendo Documentation",
-       "termsOfService":"http://swagger.io/terms/",
+       "title":"Dvdendo API Documentation",
+       "termsOfService":"https://www.dvdendo.com/security",
        "contact":{
-          "email":"apiteam@swagger.io"
+          "email":"team@dvdendo.com"
        },
        "license":{
           "name":"Apache 2.0",
