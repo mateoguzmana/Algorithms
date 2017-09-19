@@ -17,8 +17,8 @@
     "basePath":"/",
     "tags":[
        {
-          "name":"pet",
-          "description":"Everything about your Pets",
+          "name":"Dv",
+          "description":"Everything about your Dvs",
           "externalDocs":{
              "description":"Find out more",
              "url":"http://swagger.io"
@@ -26,7 +26,7 @@
        },
        {
           "name":"store",
-          "description":"Access to Petstore orders"
+          "description":"Access to Dvstore orders"
        },
        {
           "name":"user",
@@ -41,14 +41,14 @@
        "http"
     ],
     "paths":{
-       "/pet":{
+       "/dv":{
           "post":{
              "tags":[
-                "pet"
+                "dv"
              ],
-             "summary":"Add a new pet to the store",
+             "summary":"Add a new dv to the store",
              "description":"",
-             "operationId":"addPet",
+             "operationId":"addDv",
              "consumes":[
                 "application/json",
                 "application/xml"
