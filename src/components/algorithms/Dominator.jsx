@@ -55,12 +55,13 @@ export default class Dominator extends Component {
 
         //it should return just indexArray, but for print it prints another characteristics of dominator in array
         //return indexArray;
-        this.printOutput(dominator, A[indexArray]);
+        this.printOutput(dominator, A[indexArray], indexArray);
     }
 
-    printOutput(dominator, numberDominator) {
+    printOutput(dominator, numberDominator, indexArray) {
         $("#outputDominator").html("<h3>" + dominator + "</h3>").parent().fadeIn();
         $("#outputNumberDominator").html("<h3>" + numberDominator + "</h3>").parent().fadeIn();
+        $("#return").html("<h3>" + indexArray + "</h3>").parent().fadeIn();
     }
 
     render() {
@@ -126,6 +127,7 @@ export default class Dominator extends Component {
                     <div className="col-sm-6" id="divOutput">
                         <h2 style={{ display: 'none' }}>Dominator Repetitions: <span id="outputDominator"></span></h2>
                         <h2 style={{ display: 'none' }}>Dominator Number: <span id="outputNumberDominator"></span></h2>
+                        <h2 style={{ display: 'none' }}>The function should return: <span id="return"></span></h2>
                     </div>
                 </div>
             </div>
