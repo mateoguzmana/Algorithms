@@ -13,7 +13,11 @@ export default class Dominator extends Component {
     }
 
     handleChange(event) {
-        this.setState({ inputNumber: event.target.value });
+        let value = event.target.value;
+        // Convert string to array
+        value = value.split(',').map(Number);
+        
+        this.setState({ inputNumber: value });
     }
 
     calculateDominator() {
