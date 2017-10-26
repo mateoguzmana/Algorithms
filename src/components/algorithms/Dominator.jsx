@@ -53,11 +53,12 @@ export default class Dominator extends Component {
 
         dominator == 0 ? indexArray = -1 : indexArray = indexArray;
 
-        this.printOutput(indexArray, dominator, numberDominator);
+        //it should return just indexArray, but for print it prints another characteristics of dominator in array
+        //return indexArray;
+        this.printOutput(dominator, A[indexArray]);
     }
 
-    printOutput(indexArray, dominator, numberDominator) {
-        $("#outputIndexArray").html("<h3>" + indexArray + "</h3>").parent().fadeIn();
+    printOutput(dominator, numberDominator) {
         $("#outputDominator").html("<h3>" + dominator + "</h3>").parent().fadeIn();
         $("#outputNumberDominator").html("<h3>" + numberDominator + "</h3>").parent().fadeIn();
     }
@@ -107,7 +108,7 @@ export default class Dominator extends Component {
                                 type="text"
                                 id="input"
                                 className="form-control"
-                                placeholder="Please write a number here"
+                                placeholder="Please write a numbers array here, example: 1,2,-3,1,1,5"
                                 value={this.state.inputNumber}
                                 onChange={this.handleChange}
                             />
@@ -123,9 +124,8 @@ export default class Dominator extends Component {
                         </div>
                     </div>
                     <div className="col-sm-6" id="divOutput">
-                        <h2 style={{ display: 'none' }}>IndexArray: <span id="outputIndexArray"></span></h2>
-                        <h2 style={{ display: 'none' }}>Dominator: <span id="outputDominator"></span></h2>
-                        <h2 style={{ display: 'none' }}>Number Dominator: <span id="outputNumberDominator"></span></h2>
+                        <h2 style={{ display: 'none' }}>Dominator Repetitions: <span id="outputDominator"></span></h2>
+                        <h2 style={{ display: 'none' }}>Dominator Number: <span id="outputNumberDominator"></span></h2>
                     </div>
                 </div>
             </div>
