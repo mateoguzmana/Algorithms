@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Description from '../Description';
 
 export default class Dominator extends Component {
 
@@ -64,7 +65,40 @@ export default class Dominator extends Component {
     render() {
         return (
             <div>
-                <h2>Dominator</h2>
+                <Description title={"Dominator"}>
+                    A zero-indexed array A consisting of N integers is given. The dominator of array A is the value that occurs in more than half of the elements of A.
+                    <br/><br/>
+                    For example, consider array A such that
+                    <br/><br/>
+                    A[0] = 3    A[1] = 4    A[2] =  3
+                    A[3] = 2    A[4] = 3    A[5] = -1
+                    A[6] = 3    A[7] = 3
+                    The dominator of A is 3 because it occurs in 5 out of 8 elements of A (namely in those with indices 0, 2, 4, 6 and 7) and 5 is more than a half of 8.
+                    <br/><br/>
+                    Write a function
+                    <br/><br/>
+                    function solution(A);
+                    <br/><br/>
+                    that, given a zero-indexed array A consisting of N integers, returns index of any element of array A in which the dominator of A occurs. The function should return −1 if array A does not have a dominator.
+                    <br/><br/>
+                    Assume that:
+                    <br/><br/>
+                    N is an integer within the range [0..100,000];
+                    each element of array A is an integer within the range [−2,147,483,648..2,147,483,647].
+                    For example, given array A such that
+                    <br/><br/>
+                    A[0] = 3    A[1] = 4    A[2] =  3
+                    A[3] = 2    A[4] = 3    A[5] = -1
+                    A[6] = 3    A[7] = 3
+                    the function may return 0, 2, 4, 6 or 7, as explained above.
+                    <br/><br/>
+                    Complexity:
+                    <br/><br/>
+                    expected worst-case time complexity is O(N);
+                    expected worst-case space complexity is O(1), beyond input storage (not counting the storage required for input arguments).
+                    Elements of input arrays can be modified.
+                    <br/><br/>
+                </Description>
                 <div className="row">
                     <div className="col-sm-6">
                         <div className="col-sm-12">
