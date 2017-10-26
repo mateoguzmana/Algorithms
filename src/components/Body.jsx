@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import AlgorithmsList from './AlgorithmsList';
 
 //Import algorithms 
@@ -13,26 +13,26 @@ export default class Body extends Component {
         super(props);
 
         this.views = [
-            <BinaryGap/>,
-            <OddOccurrencesInArray/>,
-            <Dominator/>
+            <BinaryGap />,
+            <OddOccurrencesInArray />,
+            <Dominator />
         ]
     }
 
-    openView(props){
+    openView(props) {
         let viewId = props.match.params.id;
 
-        return this.views[viewId-1];
+        return this.views[viewId - 1];
     }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
-                <Switch>
-                    <Route exact path='/' component={AlgorithmsList}/>
-                    <Route exact path='/view/:id' render={(props) => ( this.openView(props) )}/>
-                </Switch>
+                    <Switch>
+                        <Route exact path='/' component={AlgorithmsList} />
+                        <Route exact path='/view/:id' render={(props) => (this.openView(props))} />
+                    </Switch>
                 </div>
             </div>
         );

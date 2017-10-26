@@ -16,7 +16,7 @@ export default class Dominator extends Component {
         let value = event.target.value;
         // Convert string to array
         value = value.split(',').map(Number);
-        
+
         this.setState({ inputNumber: value });
     }
 
