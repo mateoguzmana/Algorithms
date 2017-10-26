@@ -5,6 +5,7 @@ import AlgorithmsList from './AlgorithmsList';
 //Import algorithms 
 import BinaryGap from './algorithms/BinaryGap';
 import OddOccurrencesInArray from './algorithms/OddOccurrencesInArray';
+import Dominator from './algorithms/Dominator';
 
 export default class Body extends Component {
 
@@ -13,7 +14,8 @@ export default class Body extends Component {
 
         this.views = [
             <BinaryGap/>,
-            <OddOccurrencesInArray/>
+            <OddOccurrencesInArray/>,
+            <Dominator/>
         ]
     }
 
