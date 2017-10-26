@@ -12,7 +12,6 @@ export default class Description extends Component {
                                 <span className="glyphicon glyphicon-eye-open"></span>
                             </a>
                         </h2>
-
                     </div>
                 </div>
                 <div className="modal fade" id="descriptionModal" role="dialog">
