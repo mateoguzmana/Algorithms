@@ -68,6 +68,8 @@ export default class Dominator extends Component {
         return (
             <div>
                 <Description title={"Dominator"}>
+                    <h5>Find an index of an array such that its value occurs at more than half of indices in the array.</h5>
+                    <br/><br/>
                     A zero-indexed array A consisting of N integers is given. The dominator of array A is the value that occurs in more than half of the elements of A.
                     <br/><br/>
                     For example, consider array A such that
