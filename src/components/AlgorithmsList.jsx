@@ -25,7 +25,7 @@ export default class AlgorithmsList extends Component {
                                         <td>{data.author}</td>
                                         <td>
                                             <button className="btn btn-info">
-                                                <Link to={`/view/${id}`}>View</Link>
+                                                <Link style={{color: "white"}} to={`/view/${id}`}>View</Link>
                                             </button>
                                         </td>
                                     </tr>
