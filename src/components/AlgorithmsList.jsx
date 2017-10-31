@@ -30,8 +30,7 @@ export default class AlgorithmsList extends Component {
                                         </td>
                                     </tr>
                                 )
-                            }
-                            )
+                            })
                         }
                     </tbody>
                 </table>
