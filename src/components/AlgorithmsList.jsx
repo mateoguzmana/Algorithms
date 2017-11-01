@@ -17,15 +17,14 @@ export default class AlgorithmsList extends Component {
                     <tbody>
                         {
                             AlgorithmsJsonList.map((data, index) => {
-                                let id = index+1;
                                 return (
-                                    <tr key={id}>
-                                        <td>{id}</td>
+                                    <tr key={index}>
+                                        <td>{data.id}</td>
                                         <td>{data.name}</td>
                                         <td>{data.author}</td>
                                         <td>
                                             <button className="btn btn-info">
-                                                <Link style={{color: "white"}} to={`/view/${id}`}>View</Link>
+                                                <Link style={{color: "white"}} to={`/algorithm/${data.id}`}>View</Link>
                                             </button>
                                         </td>
                                     </tr>

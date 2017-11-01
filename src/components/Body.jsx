@@ -13,18 +13,18 @@ export default class Body extends Component {
     constructor(props) {
         super(props);
 
-        this.views = [
-            <BinaryGap />,
-            <OddOccurrencesInArray />,
-            <Dominator />,
-            <CyclicRotation />
-        ]
+        this.views = {
+            BinaryGap: <BinaryGap />,
+            OddOccurrencesInArray: <OddOccurrencesInArray />,
+            Dominator: <Dominator />,
+            CyclicRotation: <CyclicRotation />
+        }
     }
 
     openView(props) {
         let viewId = props.match.params.id;
 
-        return this.views[viewId - 1];
+        return this.views[viewId];
     }
 
     render() {
@@ -33,7 +33,7 @@ export default class Body extends Component {
                 <div className="row">
                     <Switch>
                         <Route exact path='/' component={AlgorithmsList} />
-                        <Route exact path='/view/:id' render={(props) => (this.openView(props))} />
+                        <Route exact path='/algorithm/:id' render={(props) => (this.openView(props))} />
                     </Switch>
                 </div>
             </div>
