@@ -14,5 +14,10 @@ export default AlgorithmsJsonList = [
         id: 3,
         name: "Dominator",
         author: "Mateo Guzmán"
+    },
+    {
+        id: 4,
+        name: "Cyclic Rotation",
+        author: "Mateo Guzmán"
     }
 ]
