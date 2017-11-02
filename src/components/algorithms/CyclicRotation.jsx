@@ -10,7 +10,7 @@ export default class CyclicRotation extends Component {
             inputNumberTwo: ''
         };
 
-        this.cyclicRotation = this.cyclicRotation.bind(this);
+        this.printOutput = this.printOutput.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleChangeTwo = this.handleChangeTwo.bind(this);
     }
@@ -30,24 +30,18 @@ export default class CyclicRotation extends Component {
     }
 
     cyclicRotation() {
-        let A = this.state.inputNumber;
-        let K = this.state.inputNumberTwo;
+       let A = this.state.inputNumber;
+       let K = this.state.inputNumberTwo;
 
-        let newArray = [];
-
-
-        for (var x = K - 1; x < A.length; x++) {
-            newArray.push(A[x])
-        }
-
-        for (var i = 0; i < K - 1; i++) {
-            newArray.push(A[i])
-        }
-
-        this.printOutput(newArray);
+       for(var i = 0; i < K; i++){
+            A.unshift(A.pop());   
+       }
+           
+       return A;
     }
 
-    printOutput(newArray) {
+    printOutput() {
+        let newArray = this.cyclicRotation();
         $("#output").html("<h3>" + newArray + "</h3>").parent().fadeIn();
     }
 
@@ -78,7 +72,7 @@ export default class CyclicRotation extends Component {
                 <div className="row">
                     <div className="col-sm-6">
                         <div className="col-sm-12">
-                            <label htmlFor="input">Input</label>
+                            <label htmlFor="input">Array</label>
                             <input
                                 type="text"
                                 id="input"
@@ -87,7 +81,8 @@ export default class CyclicRotation extends Component {
                                 value={this.state.inputNumber}
                                 onChange={this.handleChange}
                             />
-                            <label htmlFor="input">Input Two</label>
+                            <br/>
+                            <label htmlFor="input">Position to rotate</label>
                             <input
                                 type="text"
                                 id="input"
@@ -101,7 +96,7 @@ export default class CyclicRotation extends Component {
                             <br />
                             <button
                                 className="btn btn-info btn-block"
-                                onClick={this.cyclicRotation}
+                                onClick={this.printOutput}
                             >
                                 Run
                             </button>
