@@ -30,14 +30,17 @@ export default class CyclicRotation extends Component {
     }
 
     cyclicRotation() {
-       let A = this.state.inputNumber;
-       let K = this.state.inputNumberTwo;
+        let A = this.state.inputNumber;
+        let K = this.state.inputNumberTwo;
 
-       for(var i = 0; i < K; i++){
-            A.unshift(A.pop());   
-       }
-           
-       return A;
+        if (A.length == 0) {
+            return A;
+        }
+        for (var i = 0; i < K; i++) {
+            A.unshift(A.pop());
+        }
+
+        return A;
     }
 
     printOutput() {
@@ -81,7 +84,7 @@ export default class CyclicRotation extends Component {
                                 value={this.state.inputNumber}
                                 onChange={this.handleChange}
                             />
-                            <br/>
+                            <br />
                             <label htmlFor="input">Position to rotate</label>
                             <input
                                 type="text"
