@@ -23,29 +23,28 @@ export default class PermMissingElem extends Component {
 
     permMissingElem() {
 
+        let A = this.state.inputNumber;
+
         A = A.sort(function (a, b) { return a - b; });
 
-        for (let i in A) {
-            if (A[i] > 1) {
-                let tempKeyPlus = parseInt(i) + 1;
-                let tempKeyMinus = parseInt(i) - 1;
+        if (A[0] != 1) {
+            return 1;
+        }
 
-                if (A[tempKeyPlus] != undefined) {
-                    if (A[i] + 1 == A[tempKeyPlus]) {
-                        if (A[tempKeyMinus] != undefined) {
-                            if (A[i] - 1 != A[tempKeyMinus]) {
-                                return A[i];
-                            }
+        for (let i in A) {
+
+            let tempKeyPlus = parseInt(i) + 1;
+            let tempKeyMinus = parseInt(i) - 1;
+
+            if (A[tempKeyPlus] != undefined) {
+                if (A[i] + 1 == A[tempKeyPlus]) {
+                    if (A[tempKeyMinus] != undefined) {
+                        if (A[i] - 1 != A[tempKeyMinus]) {
+                            return A[i];
                         }
-                    } else {
-                        return A[i] + 1;
                     }
-                }
-            } else {
-                if (A[i] == 1) {
-                    null;
                 } else {
-                    return 1;
+                    return A[i] + 1;
                 }
             }
         }
@@ -75,7 +74,7 @@ export default class PermMissingElem extends Component {
                     <br /><br />
                     For example, given array A such that:
                     <br /><br />
-                      A[0] = 2
+                    A[0] = 2
                       A[1] = 3
                       A[2] = 1
                       A[3] = 5

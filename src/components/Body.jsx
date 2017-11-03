@@ -7,6 +7,7 @@ import BinaryGap from './algorithms/BinaryGap';
 import OddOccurrencesInArray from './algorithms/OddOccurrencesInArray';
 import Dominator from './algorithms/Dominator';
 import CyclicRotation from './algorithms/CyclicRotation';
+import PermMissingElem from './algorithms/PermMissingElem';
 
 export default class Body extends Component {
 
@@ -17,7 +18,8 @@ export default class Body extends Component {
             BinaryGap: <BinaryGap />,
             OddOccurrencesInArray: <OddOccurrencesInArray />,
             Dominator: <Dominator />,
-            CyclicRotation: <CyclicRotation />
+            CyclicRotation: <CyclicRotation />,
+            PermMissingElem: <PermMissingElem />
         }
     }
 
