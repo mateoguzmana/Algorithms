@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {HashRouter} from 'react-router-dom';
 import Algorithms from './components/Algorithms';
 
-
 window.onload = () => {
   ReactDOM.render(
     <div>
