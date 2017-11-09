@@ -6,10 +6,10 @@ export default class OddOccurrencesInArray extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputNumber: "9, 3, 9, 3, 9, 3, 9, 3, 9, 60, 9"
+            inputNumber: ""
         }
 
-        this.calculate = this.calculate.bind(this);
+        this.printOutput = this.printOutput.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -19,9 +19,9 @@ export default class OddOccurrencesInArray extends Component {
         this.setState({inputNumber: value});
     }
 
-    calculate(){
+    oddOccurrencesInArray(){
         let A = this.state.inputNumber;
-        
+
         A = A.sort();
         
         for(let i = 0; i < A.length; i++){
@@ -36,6 +36,11 @@ export default class OddOccurrencesInArray extends Component {
                 }
             }
         }
+    }
+
+    printOutput() {
+        let number = this.oddOccurrencesInArray();
+        $("#output").html("<h3>" + number + "</h3>").parent().fadeIn();
     }
 
     render() {
@@ -91,7 +96,7 @@ export default class OddOccurrencesInArray extends Component {
                                 type="text" 
                                 id="input" 
                                 className="form-control" 
-                                placeholder="Please write a number here" 
+                                placeholder="Please write an array here, example: 2,2,1,3,3" 
                                 value={this.state.inputNumber}
                                 onChange={this.handleChange}
                             />    
@@ -100,14 +105,14 @@ export default class OddOccurrencesInArray extends Component {
                             <br/>
                             <button 
                                 className="btn btn-info btn-block" 
-                                onClick={this.calculate}
+                                onClick={this.printOutput}
                             >
                                 Run
                             </button>
                         </div>
                     </div> 
                     <div className="col-sm-6" id="divOutput">
-                        <h2 style={{display:'none'}}>Response: <span id="outputNumber" ></span></h2>       
+                        <h2 style={{display:'none'}}>Unpair: <span id="output" ></span></h2>       
                     </div> 
                 </div>
             </div>
