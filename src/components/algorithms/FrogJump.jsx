@@ -16,9 +16,12 @@ export default class FrogJump extends Component {
     }
 
     handleChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+        let target = event.target;
+        let value = target.value;
+        let name = target.name;
+
+        //parseInt numbers
+        value = parseInt(value);
 
         this.setState({
             [name]: value
