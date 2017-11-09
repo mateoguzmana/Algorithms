@@ -14,27 +14,25 @@ export default class OddOccurrencesInArray extends Component {
     }
 
     handleChange(event) {
-        this.setState({inputNumber: event.target.value});
+        let value = event.target.value;
+        value = value.split(",");
+        this.setState({inputNumber: value});
     }
 
     calculate(){
         let A = this.state.inputNumber;
-        A = A.split(",");
-
-        for(var i = 0; i < A.length; i++){
-            if(A.length==1){
-                console.log(A[0]);
-            }else{
-                if(A.length>3){
-                    if(A[i]!=A[i-2] && A[i]!=A[i+2] && i % 2){
-                        console.log(A[i]);
-                        break;
-                    }
-                }else{
-                    if(A[i]!=A[i+2] && i % 2){
-                        console.log(A[i]);
-                        break;
-                    }
+        
+        A = A.sort();
+        
+        for(let i = 0; i < A.length; i++){
+            i = parseInt(i)
+            if(i == 0) {
+                if(A[i]!=A[i+1]){
+                   return A[i];
+                }
+            } else {
+                if(A[i]!=A[i-1] && A[i]!=A[i+1]){
+                   return A[i];
                 }
             }
         }
