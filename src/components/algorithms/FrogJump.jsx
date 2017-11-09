@@ -45,7 +45,6 @@ export default class FrogJump extends Component {
                 return count;
             }
             count++;
-            console.log("here")
         }
 
     }
