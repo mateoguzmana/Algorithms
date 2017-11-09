@@ -8,6 +8,7 @@ import OddOccurrencesInArray from './algorithms/OddOccurrencesInArray';
 import Dominator from './algorithms/Dominator';
 import CyclicRotation from './algorithms/CyclicRotation';
 import PermMissingElem from './algorithms/PermMissingElem';
+import FrogJump from './algorithms/FrogJump';
 
 export default class Body extends Component {
 
@@ -19,7 +20,8 @@ export default class Body extends Component {
             OddOccurrencesInArray: <OddOccurrencesInArray />,
             Dominator: <Dominator />,
             CyclicRotation: <CyclicRotation />,
-            PermMissingElem: <PermMissingElem />
+            PermMissingElem: <PermMissingElem />,
+            FrogJump: <FrogJump />,
         }
     }
 

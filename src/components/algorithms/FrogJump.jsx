@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Description from '../Description';
 
-export default class PermMissingElem extends Component {
+export default class FrogJump extends Component {
 
     constructor(props) {
         super(props);
@@ -16,9 +16,13 @@ export default class PermMissingElem extends Component {
     }
 
     handleChange(event) {
-        let value = event.target.value;
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
-        this.setState({ inputNumber: value });
+        this.setState({
+            [name]: value
+        });
     }
 
     frogJump() {
@@ -38,6 +42,7 @@ export default class PermMissingElem extends Component {
                 return count;
             }
             count++;
+            console.log("here")
         }
 
     }
@@ -65,7 +70,7 @@ export default class PermMissingElem extends Component {
                     <br /><br />
                     For example, given:
                     <br /><br />
-                      X = 10
+                    X = 10
                       Y = 85
                       D = 30
                     <br /><br />
@@ -93,40 +98,34 @@ export default class PermMissingElem extends Component {
                             <label htmlFor="input">X</label>
                             <input
                                 type="text"
-                                id="inputX"
+                                id="inputNumberX"
+                                name="inputNumberX"
                                 className="form-control"
                                 placeholder="Please write a number here example: 10"
                                 value={this.state.inputNumberX}
-                                onChange={() => {
-                                    let value = event.target.value;
-                                    this.setState({inputNumberX: value});
-                                }}
+                                onChange={this.handleChange}
                             />
-                            <br/>
+                            <br />
                             <label htmlFor="input">Y</label>
                             <input
                                 type="text"
-                                id="inputY"
+                                id="inputNumberY"
+                                name="inputNumberY"
                                 className="form-control"
                                 placeholder="Please write a number here example: 85"
                                 value={this.state.inputNumberY}
-                                onChange={() => {
-                                    let value = event.target.value;
-                                    this.setState({inputNumberY: value});
-                                }}
+                                onChange={this.handleChange}
                             />
-                            <br/>
+                            <br />
                             <label htmlFor="input">D</label>
                             <input
                                 type="text"
-                                id="inputD"
+                                id="inputNumberD"
+                                name="inputNumberD"
                                 className="form-control"
                                 placeholder="Please write a number here example: 30"
                                 value={this.state.inputNumberD}
-                                onChange={() => {
-                                    let value = event.target.value;
-                                    this.setState({inputNumberD: value});
-                                }}
+                                onChange={this.handleChange}
                             />
                         </div>
                         <div className="col-sm-12">
