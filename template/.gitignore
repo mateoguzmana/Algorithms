@@ -1,10 +1,10 @@
 lib/*
 
 # Build ...
-template/node_modules
-template/npm-debug.log
-template/public
-template/tmp
+node_modules
+npm-debug.log
+public
+tmp
 
 # Created by https://www.gitignore.io
 
@@ -82,11 +82,11 @@ coverage
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-template/build
+build
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-template/node_modules
+node_modules
 
 
 ### Linux ###
