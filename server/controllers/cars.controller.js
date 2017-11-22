@@ -26,7 +26,7 @@ controller.addCar = async (req, res) => {
     }
     catch(err) {
         logger.error('Error in getting cars- ' + err);
-        res.send('Got error in getAll');
+        res.send('Got error in addCar');
     }
 }
 
