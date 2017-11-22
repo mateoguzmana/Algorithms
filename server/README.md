@@ -1,6 +1,6 @@
-# express-es6-starter
+# Algorithms API
 
-Starter project for creating a MVC express server, using
+RESTful API for Algorithms App
 
 + express
 + mongoose
@@ -10,10 +10,6 @@ Starter project for creating a MVC express server, using
 
 ## Installation
 
-Clone the repository and run `npm install`
-
-```
-git clone https://github.com/tomyitav/express-es6-starter.git
 npm install
 ```
 
@@ -33,10 +29,8 @@ npm run build
 
 After npm building the project, go to project root directory, open shell and run:
 ```
-docker build -t express-es6-starter .
+docker build -t server .
 ```
-
-Instructions about running the container are available [here](https://hub.docker.com/r/tomyitav/express-es6-starter/)
 
 ## Debugging with Webstorm
 
