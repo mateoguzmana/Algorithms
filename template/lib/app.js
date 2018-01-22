@@ -27215,14 +27215,9 @@
 	    }
 	
 	    _createClass(Lines, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            this.createLine();
-	        }
-	    }, {
 	        key: 'createLine',
 	        value: function createLine(firstPos, secondPos) {
-	            var c = this.refs.myCanvas;
+	            var c = this.refs.canvas;
 	            var ctx = c.getContext("2d");
 	            ctx.beginPath();
 	            ctx.moveTo(firstPos.x, firstPos.y);
@@ -27243,43 +27238,86 @@
 	        value: function createPoints(event) {
 	            var _this2 = this;
 	
-	            var c = this.refs.myCanvas;
+	            var c = this.refs.canvas;
 	            var ctx = c.getContext("2d");
 	
+	            var width = this.rectSize.value;
+	
+	            ctx.lineWidth = width;
 	            var pos = this.getMousePos(c, event);
 	
-	            ctx.fillRect(pos.x, pos.y, 5, 5);
+	            ctx.fillRect(pos.x, pos.y, 1, 1);
 	            ctx.stroke();
 	
 	            var points = this.state.points + 1;
 	
 	            var positions = this.state.positions.slice();
-	            positions.push({ x: pos.x, y: pos.y });
+	            positions.push({
+	                x: pos.x,
+	                y: pos.y
+	            });
 	
 	            this.setState({
 	                points: points,
 	                positions: positions
 	            }, function () {
-	                if (_this2.state.points == 2) {
-	                    _this2.createLine(_this2.state.positions[0], _this2.state.positions[1]);
+	                if (_this2.state.points % 2 === 0) {
+	                    _this2.createLine(_this2.state.positions[_this2.state.points - 2], _this2.state.positions[_this2.state.points - 1]);
 	                }
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this3 = this;
+	
 	            return _react2.default.createElement(
 	                'div',
 	                null,
 	                _react2.default.createElement(
 	                    _Description2.default,
-	                    { title: "Geometry" },
-	                    'Geometry'
+	                    { title: "Rects" },
+	                    'Simple two points rects.'
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row' },
-	                    _react2.default.createElement('canvas', { ref: 'myCanvas', onClick: this.createPoints })
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-6' },
+	                        _react2.default.createElement('canvas', { ref: 'canvas', onClick: this.createPoints })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'col-sm-6' },
+	                        _react2.default.createElement(
+	                            'label',
+	                            { htmlFor: 'rectSize' },
+	                            'Rect Size'
+	                        ),
+	                        _react2.default.createElement('br', null),
+	                        _react2.default.createElement(
+	                            'select',
+	                            { name: 'rectSize', id: 'rectSize', ref: function ref(_ref) {
+	                                    return _this3.rectSize = _ref;
+	                                } },
+	                            _react2.default.createElement(
+	                                'option',
+	                                { value: '2' },
+	                                '2'
+	                            ),
+	                            _react2.default.createElement(
+	                                'option',
+	                                { value: '5' },
+	                                '5'
+	                            ),
+	                            _react2.default.createElement(
+	                                'option',
+	                                { value: '10' },
+	                                '10'
+	                            )
+	                        )
+	                    )
 	                )
 	            );
 	        }

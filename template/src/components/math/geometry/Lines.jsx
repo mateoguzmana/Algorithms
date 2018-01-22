@@ -8,16 +8,12 @@ export default class Lines extends Component {
         this.state = {
             points: 0,
             positions: []
-        }
+        };
         this.createPoints = this.createPoints.bind(this);
     }
 
-    componentDidMount() {
-        this.createLine();
-    }
-
     createLine(firstPos, secondPos) {
-        let c = this.refs.myCanvas;
+        let c = this.refs.canvas;
         let ctx = c.getContext("2d");
         ctx.beginPath();
         ctx.moveTo(firstPos.x, firstPos.y);
@@ -34,25 +30,34 @@ export default class Lines extends Component {
     }
 
     createPoints(event) {
-        let c = this.refs.myCanvas;
+        let c = this.refs.canvas;
         let ctx = c.getContext("2d");
 
+        let width = this.rectSize.value;
+
+        ctx.lineWidth = width;
         let pos = this.getMousePos(c, event);
 
-        ctx.fillRect(pos.x, pos.y, 5, 5);
+        ctx.fillRect(pos.x, pos.y, 1, 1);
         ctx.stroke();
 
         let points = this.state.points + 1;
 
-        var positions = this.state.positions.slice()
-        positions.push({x: pos.x, y: pos.y})
+        let positions = this.state.positions.slice();
+        positions.push({
+            x: pos.x,
+            y: pos.y
+        });
 
         this.setState({
             points: points,
             positions: positions
         }, () => {
-            if (this.state.points == 2) {
-                this.createLine(this.state.positions[0], this.state.positions[1]);
+            if (this.state.points % 2 === 0) {
+                this.createLine(
+                    this.state.positions[this.state.points - 2],
+                    this.state.positions[this.state.points - 1]
+                );
             }
         });
     }
@@ -60,11 +65,21 @@ export default class Lines extends Component {
     render() {
         return (
             <div>
-                <Description title={"Geometry"}>
-                    Geometry
+                <Description title={"Rects"}>
+                    Simple two points rects.
                 </Description>
                 <div className="row">
-                    <canvas ref="myCanvas" onClick={this.createPoints}></canvas>
+                    <div className="col-sm-6">
+                        <canvas ref="canvas" onClick={this.createPoints}></canvas>
+                    </div>
+                    <div className="col-sm-6">
+                        <label htmlFor="rectSize">Rect Size</label><br />
+                        <select name="rectSize" id="rectSize" ref={ref => this.rectSize = ref}>
+                            <option value="2">2</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         );
