@@ -27207,7 +27207,8 @@
 	        var _this = _possibleConstructorReturn(this, (Lines.__proto__ || Object.getPrototypeOf(Lines)).call(this, props));
 	
 	        _this.state = {
-	            remainingPoints: 2
+	            points: 0,
+	            positions: []
 	        };
 	        _this.createPoints = _this.createPoints.bind(_this);
 	        return _this;
@@ -27220,24 +27221,49 @@
 	        }
 	    }, {
 	        key: 'createLine',
-	        value: function createLine() {
-	            var _this2 = this;
-	
-	            setTimeout(function () {
-	                var c = _this2.refs.myCanvas;
-	                var ctx = c.getContext("2d");
-	                ctx.beginPath();
-	                ctx.moveTo(0, 0);
-	                ctx.lineTo(300, 150);
-	                ctx.stroke();
-	            }, 2000);
+	        value: function createLine(firstPos, secondPos) {
+	            var c = this.refs.myCanvas;
+	            var ctx = c.getContext("2d");
+	            ctx.beginPath();
+	            ctx.moveTo(firstPos.x, firstPos.y);
+	            ctx.lineTo(secondPos.x, secondPos.y);
+	            ctx.stroke();
+	        }
+	    }, {
+	        key: 'getMousePos',
+	        value: function getMousePos(canvas, evt) {
+	            var rect = canvas.getBoundingClientRect();
+	            return {
+	                x: evt.clientX - rect.left,
+	                y: evt.clientY - rect.top
+	            };
 	        }
 	    }, {
 	        key: 'createPoints',
 	        value: function createPoints(event) {
-	            console.log(event.clientX, event.clientY);
-	            var remainingPoints = this.state.remainingPoints - 1;
-	            this.setState({ remainingPoints: remainingPoints });
+	            var _this2 = this;
+	
+	            var c = this.refs.myCanvas;
+	            var ctx = c.getContext("2d");
+	
+	            var pos = this.getMousePos(c, event);
+	
+	            ctx.fillRect(pos.x, pos.y, 5, 5);
+	            ctx.stroke();
+	
+	            var points = this.state.points + 1;
+	
+	            var positions = this.state.positions.slice();
+	            positions.push({ x: pos.x, y: pos.y });
+	
+	            this.setState({
+	                points: points,
+	                positions: positions
+	            }, function () {
+	                if (_this2.state.points == 2) {
+	                    _this2.createLine(_this2.state.positions[0], _this2.state.positions[1]);
+	                }
+	            });
 	        }
 	    }, {
 	        key: 'render',
@@ -27253,12 +27279,6 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'row' },
-	                    _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        'Remaining points ',
-	                        this.state.remainingPoints
-	                    ),
 	                    _react2.default.createElement('canvas', { ref: 'myCanvas', onClick: this.createPoints })
 	                )
 	            );
