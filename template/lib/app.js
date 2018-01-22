@@ -25391,6 +25391,11 @@
 	              "a",
 	              { className: "navbar-brand", href: "#" },
 	              "Algorithms"
+	            ),
+	            _react2.default.createElement(
+	              "a",
+	              { className: "navbar-brand", href: "#/math/" },
+	              "Math Applied"
 	            )
 	          )
 	        )
@@ -25425,6 +25430,10 @@
 	
 	var _AlgorithmsList2 = _interopRequireDefault(_AlgorithmsList);
 	
+	var _MathList = __webpack_require__(225);
+	
+	var _MathList2 = _interopRequireDefault(_MathList);
+	
 	var _BinaryGap = __webpack_require__(218);
 	
 	var _BinaryGap2 = _interopRequireDefault(_BinaryGap);
@@ -25449,6 +25458,10 @@
 	
 	var _FrogJump2 = _interopRequireDefault(_FrogJump);
 	
+	var _Lines = __webpack_require__(227);
+	
+	var _Lines2 = _interopRequireDefault(_Lines);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25457,7 +25470,13 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	//Import algorithms 
+	// Import lists
+	
+	
+	// Import Algorithms files
+	
+	
+	// Import Math Applied files
 	
 	
 	var Body = function (_Component) {
@@ -25469,22 +25488,27 @@
 	        var _this = _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).call(this, props));
 	
 	        _this.views = {
-	            BinaryGap: _react2.default.createElement(_BinaryGap2.default, null),
-	            OddOccurrencesInArray: _react2.default.createElement(_OddOccurrencesInArray2.default, null),
-	            Dominator: _react2.default.createElement(_Dominator2.default, null),
-	            CyclicRotation: _react2.default.createElement(_CyclicRotation2.default, null),
-	            PermMissingElem: _react2.default.createElement(_PermMissingElem2.default, null),
-	            FrogJump: _react2.default.createElement(_FrogJump2.default, null)
+	            algorithms: {
+	                BinaryGap: _react2.default.createElement(_BinaryGap2.default, null),
+	                OddOccurrencesInArray: _react2.default.createElement(_OddOccurrencesInArray2.default, null),
+	                Dominator: _react2.default.createElement(_Dominator2.default, null),
+	                CyclicRotation: _react2.default.createElement(_CyclicRotation2.default, null),
+	                PermMissingElem: _react2.default.createElement(_PermMissingElem2.default, null),
+	                FrogJump: _react2.default.createElement(_FrogJump2.default, null)
+	            },
+	            math: {
+	                Lines: _react2.default.createElement(_Lines2.default, null)
+	            }
 	        };
 	        return _this;
 	    }
 	
 	    _createClass(Body, [{
 	        key: 'openView',
-	        value: function openView(props) {
+	        value: function openView(type, props) {
 	            var viewId = props.match.params.id;
 	
-	            return this.views[viewId];
+	            return this.views[type][viewId];
 	        }
 	    }, {
 	        key: 'render',
@@ -25501,8 +25525,13 @@
 	                        _reactRouterDom.Switch,
 	                        null,
 	                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _AlgorithmsList2.default }),
+	                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/algorithms/', component: _AlgorithmsList2.default }),
+	                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/math/', component: _MathList2.default }),
 	                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/algorithm/:id', render: function render(props) {
-	                                return _this2.openView(props);
+	                                return _this2.openView("algorithms", props);
+	                            } }),
+	                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/math/:id', render: function render(props) {
+	                                return _this2.openView("math", props);
 	                            } })
 	                    )
 	                )
@@ -27009,6 +27038,237 @@
 	}(_react.Component);
 	
 	exports.default = FrogJump;
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouterDom = __webpack_require__(170);
+	
+	var _MathJsonList = __webpack_require__(226);
+	
+	var _MathJsonList2 = _interopRequireDefault(_MathJsonList);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MathList = function (_Component) {
+	    _inherits(MathList, _Component);
+	
+	    function MathList() {
+	        _classCallCheck(this, MathList);
+	
+	        return _possibleConstructorReturn(this, (MathList.__proto__ || Object.getPrototypeOf(MathList)).apply(this, arguments));
+	    }
+	
+	    _createClass(MathList, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'table',
+	                    { className: 'table table-hover' },
+	                    _react2.default.createElement(
+	                        'thead',
+	                        null,
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement('th', null),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'Name'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'Author'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tbody',
+	                        null,
+	                        _MathJsonList2.default.map(function (data, index) {
+	                            return _react2.default.createElement(
+	                                'tr',
+	                                { key: index },
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    data.id
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    data.name
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    data.author
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'button',
+	                                        { className: 'btn btn-info' },
+	                                        _react2.default.createElement(
+	                                            _reactRouterDom.Link,
+	                                            { style: { color: "white" }, to: '/math/' + data.id },
+	                                            'View'
+	                                        )
+	                                    )
+	                                )
+	                            );
+	                        })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MathList;
+	}(_react.Component);
+	
+	exports.default = MathList;
+
+/***/ },
+/* 226 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var MathJsonList = void 0;
+	exports.default = MathJsonList = [{
+	    id: "Lines",
+	    name: "Lines",
+	    author: "Mateo Guzmán"
+	}];
+
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Description = __webpack_require__(219);
+	
+	var _Description2 = _interopRequireDefault(_Description);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Lines = function (_Component) {
+	    _inherits(Lines, _Component);
+	
+	    function Lines(props) {
+	        _classCallCheck(this, Lines);
+	
+	        var _this = _possibleConstructorReturn(this, (Lines.__proto__ || Object.getPrototypeOf(Lines)).call(this, props));
+	
+	        _this.state = {
+	            remainingPoints: 2
+	        };
+	        _this.createPoints = _this.createPoints.bind(_this);
+	        return _this;
+	    }
+	
+	    _createClass(Lines, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.createLine();
+	        }
+	    }, {
+	        key: 'createLine',
+	        value: function createLine() {
+	            var _this2 = this;
+	
+	            setTimeout(function () {
+	                var c = _this2.refs.myCanvas;
+	                var ctx = c.getContext("2d");
+	                ctx.beginPath();
+	                ctx.moveTo(0, 0);
+	                ctx.lineTo(300, 150);
+	                ctx.stroke();
+	            }, 2000);
+	        }
+	    }, {
+	        key: 'createPoints',
+	        value: function createPoints(event) {
+	            console.log(event.clientX, event.clientY);
+	            var remainingPoints = this.state.remainingPoints - 1;
+	            this.setState({ remainingPoints: remainingPoints });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    _Description2.default,
+	                    { title: "Geometry" },
+	                    'Geometry'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'row' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        'Remaining points ',
+	                        this.state.remainingPoints
+	                    ),
+	                    _react2.default.createElement('canvas', { ref: 'myCanvas', onClick: this.createPoints })
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return Lines;
+	}(_react.Component);
+	
+	exports.default = Lines;
 
 /***/ }
 /******/ ]);
