@@ -1,15 +1,15 @@
 {
   "name": "react-webpack-starter",
   "version": "1.0.0",
-  "description": "React webpack starter template",
+  "description": "Javascript Engineering",
   "main": "lib/index.js",
   "dependencies": {
     "react-router-dom": "^4.2.2"
   },
   "author": {
-    "name": "Krasimir Tsonev",
-    "email": "info@krasimirtsonev.com",
-    "url": "http://krasimirtsonev.com"
+    "name": "Mateo Guzmán",
+    "email": "mateo.guzmanalvarez@gmail.com",
+    "url": "https://www.linkedin.com/in/mateoguzman/"
   },
   "license": "MIT",
   "keywords": [
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:krasimir/react-webpack-starter.git"
+    "url": "git@github.com:mateoguzmana/Algorithms.git"
   },
   "scripts": {
     "dev": "./node_modules/.bin/webpack --watch --inline",
