@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 
 // Import lists
-import AlgorithmsList from './AlgorithmsList';
-import MathList from './MathList';
+import AlgorithmsList from './lists/AlgorithmsList';
+import MathList from './lists/MathList';
 
 // Import Algorithms files
 import BinaryGap from './algorithms/BinaryGap';

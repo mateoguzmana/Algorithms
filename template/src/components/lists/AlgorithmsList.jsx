@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import MathJsonList from '../data/MathJsonList';
+import AlgorithmsJsonList from '../../data/lists/AlgorithmsJsonList';
 
-export default class MathList extends Component {
+export default class AlgorithmsList extends Component {
     render() {
         return (
             <div>
@@ -16,7 +16,7 @@ export default class MathList extends Component {
                     </thead>
                     <tbody>
                         {
-                            MathJsonList.map((data, index) => {
+                            AlgorithmsJsonList.map((data, index) => {
                                 return (
                                     <tr key={index}>
                                         <td>{data.id}</td>
@@ -24,7 +24,7 @@ export default class MathList extends Component {
                                         <td>{data.author}</td>
                                         <td>
                                             <button className="btn btn-info">
-                                                <Link style={{ color: "white" }} to={`/math/${data.id}`}>View</Link>
+                                                <Link style={{ color: "white" }} to={`/algorithm/${data.id}`}>View</Link>
                                             </button>
                                         </td>
                                     </tr>

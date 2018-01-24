@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
-import Algorithms from './components/Algorithms';
+import Container from './components/Container';
 
 window.onload = () => {
   ReactDOM.render(
     <div>
       <HashRouter>
-        <Algorithms />
+        <Container />
       </HashRouter>
     </div>,
     document.querySelector('#container')
