@@ -77,26 +77,58 @@ export default class Lines extends Component {
     }
 
     getNumberLines() {
-        return Number.isInteger(this.state.points / 2) ? 
-            this.state.points / 2 
+        return Number.isInteger(this.state.points / 2) ?
+            this.state.points / 2
             :
             this.state.points / 2 - 0.5;
     }
 
+    /**
+     * Calculate distance between two points.
+     * Formula based on Pythagorean Theorem.
+     * sqrt((x1 - x2)^2 + (y1 - y2)^2)
+     * @param {Array} firstPoint 
+     * @param {Array} secondPoint 
+     * @returns {Number} - Distance between two points.
+     */
     calculateLineLength(firstPoint, secondPoint) {
         let x1 = firstPoint.x;
         let y1 = firstPoint.y;
         let x2 = secondPoint.x;
         let y2 = secondPoint.y;
 
-        return Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1 - y2, 2))
-    } 
+        /**
+         * Round float number.
+         * @param {Number} n 
+         */
+        let round = (n) => {
+            return Math.round(n)
+        };
+        /**
+         * Number root.
+         * @param {Number} n 
+         */
+        let sqrt = (n) => {
+            return Math.sqrt(n)
+        };
+        /**
+         * Number squared.
+         * @param {Number} n 
+         */
+        let pow = (n) => {
+            return Math.pow(n, 2)
+        };
+        return round(sqrt(pow((x1 - x2)) + pow((y1 - y2))));
+    }
 
     render() {
         return (
             <div>
-                <Description title={"Rects"}>
-                    Simple two points rects.
+                <Description title={"Lines and points"}>
+                    - Simple two points rects.<br />
+                    - Creation of lines from two points.<br />
+                    - Calculating lines length with coordenates.<br />
+                    - Line size dynamic.<br />
                 </Description>
                 <div className="row">
                     <div className="col-sm-6">
@@ -112,12 +144,12 @@ export default class Lines extends Component {
                             </select>
                         </div>
                         <div className="col-sm-12">
-                            <h2>Number lines: {this.getNumberLines()}</h2>
+                            <h2>Number of lines: {this.getNumberLines()}</h2>
                             <ul>
                                 {this.state.lines.map((val, i) => {
                                     return (
                                         <li key={i}>
-                                            {`Line ${i+1} length ${this.calculateLineLength(val.firstPoint, val.secondPoint)}`}
+                                            {`Line ${i + 1} length ${this.calculateLineLength(val.firstPoint, val.secondPoint)}`}
                                         </li>
                                     )
                                 })}

@@ -27285,6 +27285,16 @@
 	        value: function getNumberLines() {
 	            return Number.isInteger(this.state.points / 2) ? this.state.points / 2 : this.state.points / 2 - 0.5;
 	        }
+	
+	        /**
+	         * Calculate distance between two points.
+	         * Formula based on Pythagorean Theorem.
+	         * sqrt((x1 - x2)^2 + (y1 - y2)^2)
+	         * @param {Array} firstPoint 
+	         * @param {Array} secondPoint 
+	         * @returns {Number} - Distance between two points.
+	         */
+	
 	    }, {
 	        key: 'calculateLineLength',
 	        value: function calculateLineLength(firstPoint, secondPoint) {
@@ -27293,7 +27303,28 @@
 	            var x2 = secondPoint.x;
 	            var y2 = secondPoint.y;
 	
-	            return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+	            /**
+	             * Round float number.
+	             * @param {Number} n 
+	             */
+	            var round = function round(n) {
+	                return Math.round(n);
+	            };
+	            /**
+	             * Number root.
+	             * @param {Number} n 
+	             */
+	            var sqrt = function sqrt(n) {
+	                return Math.sqrt(n);
+	            };
+	            /**
+	             * Number squared.
+	             * @param {Number} n 
+	             */
+	            var pow = function pow(n) {
+	                return Math.pow(n, 2);
+	            };
+	            return round(sqrt(pow(x1 - x2) + pow(y1 - y2)));
 	        }
 	    }, {
 	        key: 'render',
@@ -27305,8 +27336,15 @@
 	                null,
 	                _react2.default.createElement(
 	                    _Description2.default,
-	                    { title: "Rects" },
-	                    'Simple two points rects.'
+	                    { title: "Lines and points" },
+	                    '- Simple two points rects.',
+	                    _react2.default.createElement('br', null),
+	                    '- Creation of lines from two points.',
+	                    _react2.default.createElement('br', null),
+	                    '- Calculating lines length with coordenates.',
+	                    _react2.default.createElement('br', null),
+	                    '- Line size dynamic.',
+	                    _react2.default.createElement('br', null)
 	                ),
 	                _react2.default.createElement(
 	                    'div',
@@ -27356,7 +27394,7 @@
 	                            _react2.default.createElement(
 	                                'h2',
 	                                null,
-	                                'Number lines: ',
+	                                'Number of lines: ',
 	                                this.getNumberLines()
 	                            ),
 	                            _react2.default.createElement(
