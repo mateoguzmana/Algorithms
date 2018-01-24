@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import MathJsonList from '../../data/lists/MathJsonList';
+import MathsJsonList from '../../data/lists/MathsJsonList';
 
-export default class MathList extends Component {
+export default class MathsList extends Component {
     render() {
         return (
             <div>
@@ -16,7 +16,7 @@ export default class MathList extends Component {
                     </thead>
                     <tbody>
                         {
-                            MathJsonList.map((data, index) => {
+                            MathsJsonList.map((data, index) => {
                                 return (
                                     <tr key={index}>
                                         <td>{data.id}</td>

@@ -1,5 +1,5 @@
-let MathJsonList;
-export default MathJsonList = [
+let MathsJsonList;
+export default MathsJsonList = [
     {
         id: "Lines",
         name: "Lines",

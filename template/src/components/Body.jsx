@@ -3,7 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 // Import lists
 import AlgorithmsList from './lists/AlgorithmsList';
-import MathList from './lists/MathList';
+import MathsList from './lists/MathsList';
 
 // Import Algorithms files
 import BinaryGap from './algorithms/BinaryGap';
@@ -30,7 +30,7 @@ export default class Body extends Component {
                 PermMissingElem: <PermMissingElem />,
                 FrogJump: <FrogJump />,
             },
-            math: {
+            maths: {
                 Lines: <Lines />
             }
         }
@@ -49,9 +49,9 @@ export default class Body extends Component {
                     <Switch>
                         <Route exact path='/' component={AlgorithmsList} />
                         <Route exact path='/algorithms/' component={AlgorithmsList} />
-                        <Route exact path='/math/' component={MathList} />
+                        <Route exact path='/maths/' component={MathsList} />
                         <Route exact path='/algorithm/:id' render={(props) => this.openView("algorithms", props)} />
-                        <Route exact path='/math/:id' render={(props) => this.openView("math", props)} />
+                        <Route exact path='/maths/:id' render={(props) => this.openView("maths", props)} />
                     </Switch>
                 </div>
             </div>
