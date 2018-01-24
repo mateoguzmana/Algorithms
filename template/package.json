@@ -25,8 +25,7 @@
     "dev": "./node_modules/.bin/webpack --watch --inline",
     "build": "./node_modules/.bin/webpack --config=webpack.build.config.js",
     "test": "karma start",
-    "test:ci": "watch 'npm run test' src/",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "test:ci": "watch 'npm run test' src/"
   },
   "devDependencies": {
     "babel": "6.5.2",
