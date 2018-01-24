@@ -12,11 +12,7 @@
     "url": "https://www.linkedin.com/in/mateoguzman/"
   },
   "license": "MIT",
-  "keywords": [
-    "react",
-    "carousel",
-    "responsive"
-  ],
+  "keywords": ["react", "carousel", "responsive"],
   "repository": {
     "type": "git",
     "url": "git@github.com:mateoguzmana/Algorithms.git"

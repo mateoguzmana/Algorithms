@@ -24,7 +24,7 @@ export default class MathsList extends Component {
                                         <td>{data.author}</td>
                                         <td>
                                             <button className="btn btn-info">
-                                                <Link style={{ color: "white" }} to={`/math/${data.id}`}>View</Link>
+                                                <Link style={{ color: "white" }} to={`/maths/${data.id}`}>View</Link>
                                             </button>
                                         </td>
                                     </tr>
