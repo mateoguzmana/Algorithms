@@ -129,6 +129,7 @@ export default class Lines extends Component {
                     - Creation of lines from two points.<br />
                     - Calculating lines length with coordenates.<br />
                     - Line size dynamic.<br />
+                    <img src="http://distancebetweentwopoints.com/wp-content/uploads/2013/10/distance-formula-between-two-points-example.gif" />
                 </Description>
                 <div className="row">
                     <div className="col-sm-6">

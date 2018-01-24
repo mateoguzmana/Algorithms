@@ -27344,7 +27344,8 @@
 	                    '- Calculating lines length with coordenates.',
 	                    _react2.default.createElement('br', null),
 	                    '- Line size dynamic.',
-	                    _react2.default.createElement('br', null)
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement('img', { src: 'http://distancebetweentwopoints.com/wp-content/uploads/2013/10/distance-formula-between-two-points-example.gif' })
 	                ),
 	                _react2.default.createElement(
 	                    'div',
