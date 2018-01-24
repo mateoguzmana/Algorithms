@@ -25430,31 +25430,31 @@
 	
 	var _AlgorithmsList2 = _interopRequireDefault(_AlgorithmsList);
 	
-	var _MathList = __webpack_require__(225);
+	var _MathList = __webpack_require__(218);
 	
 	var _MathList2 = _interopRequireDefault(_MathList);
 	
-	var _BinaryGap = __webpack_require__(218);
+	var _BinaryGap = __webpack_require__(220);
 	
 	var _BinaryGap2 = _interopRequireDefault(_BinaryGap);
 	
-	var _OddOccurrencesInArray = __webpack_require__(220);
+	var _OddOccurrencesInArray = __webpack_require__(222);
 	
 	var _OddOccurrencesInArray2 = _interopRequireDefault(_OddOccurrencesInArray);
 	
-	var _Dominator = __webpack_require__(221);
+	var _Dominator = __webpack_require__(223);
 	
 	var _Dominator2 = _interopRequireDefault(_Dominator);
 	
-	var _CyclicRotation = __webpack_require__(222);
+	var _CyclicRotation = __webpack_require__(224);
 	
 	var _CyclicRotation2 = _interopRequireDefault(_CyclicRotation);
 	
-	var _PermMissingElem = __webpack_require__(223);
+	var _PermMissingElem = __webpack_require__(225);
 	
 	var _PermMissingElem2 = _interopRequireDefault(_PermMissingElem);
 	
-	var _FrogJump = __webpack_require__(224);
+	var _FrogJump = __webpack_require__(226);
 	
 	var _FrogJump2 = _interopRequireDefault(_FrogJump);
 	
@@ -25711,7 +25711,138 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Description = __webpack_require__(219);
+	var _reactRouterDom = __webpack_require__(170);
+	
+	var _MathJsonList = __webpack_require__(219);
+	
+	var _MathJsonList2 = _interopRequireDefault(_MathJsonList);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MathList = function (_Component) {
+	    _inherits(MathList, _Component);
+	
+	    function MathList() {
+	        _classCallCheck(this, MathList);
+	
+	        return _possibleConstructorReturn(this, (MathList.__proto__ || Object.getPrototypeOf(MathList)).apply(this, arguments));
+	    }
+	
+	    _createClass(MathList, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'table',
+	                    { className: 'table table-hover' },
+	                    _react2.default.createElement(
+	                        'thead',
+	                        null,
+	                        _react2.default.createElement(
+	                            'tr',
+	                            null,
+	                            _react2.default.createElement('th', null),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'Name'
+	                            ),
+	                            _react2.default.createElement(
+	                                'th',
+	                                null,
+	                                'Author'
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tbody',
+	                        null,
+	                        _MathJsonList2.default.map(function (data, index) {
+	                            return _react2.default.createElement(
+	                                'tr',
+	                                { key: index },
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    data.id
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    data.name
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    data.author
+	                                ),
+	                                _react2.default.createElement(
+	                                    'td',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'button',
+	                                        { className: 'btn btn-info' },
+	                                        _react2.default.createElement(
+	                                            _reactRouterDom.Link,
+	                                            { style: { color: "white" }, to: '/math/' + data.id },
+	                                            'View'
+	                                        )
+	                                    )
+	                                )
+	                            );
+	                        })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return MathList;
+	}(_react.Component);
+	
+	exports.default = MathList;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var MathJsonList = void 0;
+	exports.default = MathJsonList = [{
+	    id: "Lines",
+	    name: "Lines",
+	    author: "Mateo Guzmán"
+	}];
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Description = __webpack_require__(221);
 	
 	var _Description2 = _interopRequireDefault(_Description);
 	
@@ -25881,7 +26012,7 @@
 	exports.default = BinaryGap;
 
 /***/ },
-/* 219 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25991,7 +26122,7 @@
 	exports.default = Description;
 
 /***/ },
-/* 220 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26006,7 +26137,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Description = __webpack_require__(219);
+	var _Description = __webpack_require__(221);
 	
 	var _Description2 = _interopRequireDefault(_Description);
 	
@@ -26184,7 +26315,7 @@
 	exports.default = OddOccurrencesInArray;
 
 /***/ },
-/* 221 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26199,7 +26330,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Description = __webpack_require__(219);
+	var _Description = __webpack_require__(221);
 	
 	var _Description2 = _interopRequireDefault(_Description);
 	
@@ -26402,7 +26533,7 @@
 	exports.default = Dominator;
 
 /***/ },
-/* 222 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26417,7 +26548,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Description = __webpack_require__(219);
+	var _Description = __webpack_require__(221);
 	
 	var _Description2 = _interopRequireDefault(_Description);
 	
@@ -26598,7 +26729,7 @@
 	exports.default = CyclicRotation;
 
 /***/ },
-/* 223 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26613,7 +26744,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Description = __webpack_require__(219);
+	var _Description = __webpack_require__(221);
 	
 	var _Description2 = _interopRequireDefault(_Description);
 	
@@ -26806,7 +26937,7 @@
 	exports.default = PermMissingElem;
 
 /***/ },
-/* 224 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26821,7 +26952,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Description = __webpack_require__(219);
+	var _Description = __webpack_require__(221);
 	
 	var _Description2 = _interopRequireDefault(_Description);
 	
@@ -27040,137 +27171,6 @@
 	exports.default = FrogJump;
 
 /***/ },
-/* 225 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouterDom = __webpack_require__(170);
-	
-	var _MathJsonList = __webpack_require__(226);
-	
-	var _MathJsonList2 = _interopRequireDefault(_MathJsonList);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var MathList = function (_Component) {
-	    _inherits(MathList, _Component);
-	
-	    function MathList() {
-	        _classCallCheck(this, MathList);
-	
-	        return _possibleConstructorReturn(this, (MathList.__proto__ || Object.getPrototypeOf(MathList)).apply(this, arguments));
-	    }
-	
-	    _createClass(MathList, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'table',
-	                    { className: 'table table-hover' },
-	                    _react2.default.createElement(
-	                        'thead',
-	                        null,
-	                        _react2.default.createElement(
-	                            'tr',
-	                            null,
-	                            _react2.default.createElement('th', null),
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                'Name'
-	                            ),
-	                            _react2.default.createElement(
-	                                'th',
-	                                null,
-	                                'Author'
-	                            )
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'tbody',
-	                        null,
-	                        _MathJsonList2.default.map(function (data, index) {
-	                            return _react2.default.createElement(
-	                                'tr',
-	                                { key: index },
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    data.id
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    data.name
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    data.author
-	                                ),
-	                                _react2.default.createElement(
-	                                    'td',
-	                                    null,
-	                                    _react2.default.createElement(
-	                                        'button',
-	                                        { className: 'btn btn-info' },
-	                                        _react2.default.createElement(
-	                                            _reactRouterDom.Link,
-	                                            { style: { color: "white" }, to: '/math/' + data.id },
-	                                            'View'
-	                                        )
-	                                    )
-	                                )
-	                            );
-	                        })
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return MathList;
-	}(_react.Component);
-	
-	exports.default = MathList;
-
-/***/ },
-/* 226 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var MathJsonList = void 0;
-	exports.default = MathJsonList = [{
-	    id: "Lines",
-	    name: "Lines",
-	    author: "Mateo Guzmán"
-	}];
-
-/***/ },
 /* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -27186,7 +27186,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Description = __webpack_require__(219);
+	var _Description = __webpack_require__(221);
 	
 	var _Description2 = _interopRequireDefault(_Description);
 	
@@ -27208,7 +27208,8 @@
 	
 	        _this.state = {
 	            points: 0,
-	            positions: []
+	            positions: [],
+	            lines: []
 	        };
 	        _this.createPoints = _this.createPoints.bind(_this);
 	        return _this;
@@ -27216,13 +27217,27 @@
 	
 	    _createClass(Lines, [{
 	        key: 'createLine',
-	        value: function createLine(firstPos, secondPos) {
+	        value: function createLine(firstPoint, secondPoint) {
 	            var c = this.refs.canvas;
 	            var ctx = c.getContext("2d");
 	            ctx.beginPath();
-	            ctx.moveTo(firstPos.x, firstPos.y);
-	            ctx.lineTo(secondPos.x, secondPos.y);
+	            ctx.moveTo(firstPoint.x, firstPoint.y);
+	            ctx.lineTo(secondPoint.x, secondPoint.y);
 	            ctx.stroke();
+	
+	            var lines = this.state.lines.slice();
+	            lines.push({
+	                firstPoint: {
+	                    x: firstPoint.x,
+	                    y: firstPoint.y
+	                },
+	                secondPoint: {
+	                    x: secondPoint.x,
+	                    y: secondPoint.y
+	                }
+	            });
+	
+	            this.setState({ lines: lines });
 	        }
 	    }, {
 	        key: 'getMousePos',
@@ -27241,11 +27256,10 @@
 	            var c = this.refs.canvas;
 	            var ctx = c.getContext("2d");
 	
+	            var pos = this.getMousePos(c, event);
 	            var width = this.rectSize.value;
 	
 	            ctx.lineWidth = width;
-	            var pos = this.getMousePos(c, event);
-	
 	            ctx.fillRect(pos.x, pos.y, 1, 1);
 	            ctx.stroke();
 	
@@ -27265,6 +27279,21 @@
 	                    _this2.createLine(_this2.state.positions[_this2.state.points - 2], _this2.state.positions[_this2.state.points - 1]);
 	                }
 	            });
+	        }
+	    }, {
+	        key: 'getNumberLines',
+	        value: function getNumberLines() {
+	            return Number.isInteger(this.state.points / 2) ? this.state.points / 2 : this.state.points / 2 - 0.5;
+	        }
+	    }, {
+	        key: 'calculateLineLength',
+	        value: function calculateLineLength(firstPoint, secondPoint) {
+	            var x1 = firstPoint.x;
+	            var y1 = firstPoint.y;
+	            var x2 = secondPoint.x;
+	            var y2 = secondPoint.y;
+	
+	            return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
 	        }
 	    }, {
 	        key: 'render',
@@ -27291,30 +27320,55 @@
 	                        'div',
 	                        { className: 'col-sm-6' },
 	                        _react2.default.createElement(
-	                            'label',
-	                            { htmlFor: 'rectSize' },
-	                            'Rect Size'
+	                            'div',
+	                            { className: 'col-sm-12' },
+	                            _react2.default.createElement(
+	                                'label',
+	                                { htmlFor: 'rectSize' },
+	                                'Rect Size'
+	                            ),
+	                            _react2.default.createElement('br', null),
+	                            _react2.default.createElement(
+	                                'select',
+	                                { name: 'rectSize', id: 'rectSize', ref: function ref(_ref) {
+	                                        return _this3.rectSize = _ref;
+	                                    } },
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    { value: '2' },
+	                                    '2'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    { value: '5' },
+	                                    '5'
+	                                ),
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    { value: '10' },
+	                                    '10'
+	                                )
+	                            )
 	                        ),
-	                        _react2.default.createElement('br', null),
 	                        _react2.default.createElement(
-	                            'select',
-	                            { name: 'rectSize', id: 'rectSize', ref: function ref(_ref) {
-	                                    return _this3.rectSize = _ref;
-	                                } },
+	                            'div',
+	                            { className: 'col-sm-12' },
 	                            _react2.default.createElement(
-	                                'option',
-	                                { value: '2' },
-	                                '2'
+	                                'h2',
+	                                null,
+	                                'Number lines: ',
+	                                this.getNumberLines()
 	                            ),
 	                            _react2.default.createElement(
-	                                'option',
-	                                { value: '5' },
-	                                '5'
-	                            ),
-	                            _react2.default.createElement(
-	                                'option',
-	                                { value: '10' },
-	                                '10'
+	                                'ul',
+	                                null,
+	                                this.state.lines.map(function (val, i) {
+	                                    return _react2.default.createElement(
+	                                        'li',
+	                                        { key: i },
+	                                        'Line ' + (i + 1) + ' length ' + _this3.calculateLineLength(val.firstPoint, val.secondPoint)
+	                                    );
+	                                })
 	                            )
 	                        )
 	                    )
