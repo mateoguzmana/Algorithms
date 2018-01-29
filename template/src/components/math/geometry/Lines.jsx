@@ -133,7 +133,12 @@ export default class Lines extends Component {
                 </Description>
                 <div className="row">
                     <div className="col-sm-6">
-                        <canvas ref="canvas" onClick={this.createPoints}></canvas>
+                        <canvas 
+                            ref="canvas" 
+                            onClick={this.createPoints}
+                            className="canvas"
+                        >
+                        </canvas>
                     </div>
                     <div className="col-sm-6">
                         <div className="col-sm-12">
