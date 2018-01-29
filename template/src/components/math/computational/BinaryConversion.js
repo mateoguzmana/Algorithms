@@ -27,6 +27,11 @@ export default class BinaryConversion extends Component {
      */
     convertNumber(e) {
         let number = e.target.value;
+
+        this.setState({
+            input: number
+        });
+
         if (number != "") {
             this.state.type === 0 ?
                 this.toBinary(number)
@@ -96,6 +101,35 @@ export default class BinaryConversion extends Component {
         });
     }
 
+    getDetail() {
+        let toBinaryText = () => {
+            return (
+                <div>
+                    ({this.state.input})
+                    <sub>2 </sub> 
+                     = (2)
+                    <sub>10</sub>
+                </div>
+            );
+        };
+
+        let toDecimalText = () => {
+            return (
+                <div>
+                    ({this.state.input})
+                    <sub>2 </sub> 
+                     = ({this.state.result})
+                    <sub>10</sub>
+                </div>
+            );
+        };
+
+        return this.state.type === 0 ?
+            toBinaryText() 
+            :
+            toDecimalText() 
+    }
+
     render() {
         return (
             <div>
@@ -125,7 +159,9 @@ export default class BinaryConversion extends Component {
                         </select>
                     </div>
                     <div className="col-sm-12">
+                        <br />
                         <h4>{`Result: ${this.state.result}`}</h4>
+                        <h4>{this.getDetail()}</h4>
                     </div>
                 </div>
             </div>
