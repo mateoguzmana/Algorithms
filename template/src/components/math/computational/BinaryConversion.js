@@ -14,12 +14,15 @@ export default class BinaryConversion extends Component {
     }
 
     onChange(e) {
-        this.setState({ type: e.target.value })
+        this.setState({ 
+            type: e.target.value,
+            result: ''
+        })
     }
 
     convertNumber(e) {
         let number = e.target.value;
-        if(number != "") {
+        if (number != "") {
             this.state.type === 0 ?
                 this.toBinary(number)
                 :
@@ -33,17 +36,17 @@ export default class BinaryConversion extends Component {
         let remainders = [];
         let binary = "";
 
-        if(number == 0) {
+        if (number == 0) {
             return;
         }
 
-        while(true) {
+        while (true) {
             remainderTemp = n % 2;
             n = (n - remainderTemp) / 2;
-            
+
             remainders.push(remainderTemp);
 
-            if(remainderTemp == 1 && n == 0) {
+            if (remainderTemp == 1 && n == 0) {
                 break;
             }
         }
@@ -51,11 +54,33 @@ export default class BinaryConversion extends Component {
         this.setState({
             result: remainders.reverse().join("")
         });
-        
+
     }
 
     toDecimal(number) {
-        console.log("to decimal", number)
+        let n = number;
+        n = n.split("").reverse();
+        let toSum = [];
+        let sum = 0;
+
+        //to Int
+        n = n.map(x => {
+            return parseInt(x);
+        });
+
+        for (let x = 0; x < n.length; x++) {
+            if (n[x] != 0) {
+                toSum.push(Math.pow(2, x) * n[x])
+            }
+        }
+
+        toSum.map(x => {
+            sum += x;
+        });
+
+        this.setState({
+            result: sum
+        });
     }
 
     render() {
