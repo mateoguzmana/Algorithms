@@ -9,17 +9,22 @@ export default class BinaryConversion extends Component {
             type: 0,
             result: ''
         };
+        this.description = "Convert binary to decimal number or decimal number to binary.";
         this.onChange = this.onChange.bind(this);
         this.convertNumber = this.convertNumber.bind(this);
     }
 
     onChange(e) {
-        this.setState({ 
+        this.setState({
             type: e.target.value,
             result: ''
         })
     }
 
+    /**
+     * Call conversion function depending of what option user has selected.
+     * @param {Object} e Event
+     */
     convertNumber(e) {
         let number = e.target.value;
         if (number != "") {
@@ -30,6 +35,10 @@ export default class BinaryConversion extends Component {
         }
     }
 
+    /**
+     * Convert decimal number to binary representation.
+     * @param {*} number 
+     */
     toBinary(number) {
         let n = parseInt(number);
         let remainderTemp = null;
@@ -57,6 +66,10 @@ export default class BinaryConversion extends Component {
 
     }
 
+    /**
+     * Convert binary number to decimal number representation.
+     * @param {*} number 
+     */
     toDecimal(number) {
         let n = number;
         n = n.split("").reverse();
@@ -87,7 +100,7 @@ export default class BinaryConversion extends Component {
         return (
             <div>
                 <Description title={"Binary Conversion"}>
-                    Convert binary to decimal number or decimal number to binary.
+                    {this.description}
                 </Description>
                 <div className="row">
                     <div className="col-sm-6">
