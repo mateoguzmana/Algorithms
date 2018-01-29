@@ -10,10 +10,52 @@ export default class BinaryConversion extends Component {
             result: ''
         };
         this.onChange = this.onChange.bind(this);
+        this.convertNumber = this.convertNumber.bind(this);
     }
 
     onChange(e) {
         this.setState({ type: e.target.value })
+    }
+
+    convertNumber(e) {
+        let number = e.target.value;
+        if(number != "") {
+            this.state.type === 0 ?
+                this.toBinary(number)
+                :
+                this.toDecimal(number);
+        }
+    }
+
+    toBinary(number) {
+        let n = parseInt(number);
+        let remainderTemp = null;
+        let remainders = [];
+        let binary = "";
+
+        if(number == 0) {
+            return;
+        }
+
+        while(true) {
+            remainderTemp = n % 2;
+            n = (n - remainderTemp) / 2;
+            
+            remainders.push(remainderTemp);
+
+            if(remainderTemp == 1 && n == 0) {
+                break;
+            }
+        }
+
+        this.setState({
+            result: remainders.reverse().join("")
+        });
+        
+    }
+
+    toDecimal(number) {
+        console.log("to decimal", number)
     }
 
     render() {
@@ -24,7 +66,16 @@ export default class BinaryConversion extends Component {
                 </Description>
                 <div className="row">
                     <div className="col-sm-6">
-                        <input className="form-control" placeholder={this.state.type === 0 ? 'Decimal number, example: 345' : 'Binary number, example: 10101'} />
+                        <input
+                            className="form-control"
+                            type="number"
+                            placeholder={this.state.type === 0 ?
+                                'Decimal number, example: 345'
+                                :
+                                'Binary number, example: 10101'
+                            }
+                            onKeyUp={this.convertNumber}
+                        />
                     </div>
                     <div className="col-sm-6">
                         <select
