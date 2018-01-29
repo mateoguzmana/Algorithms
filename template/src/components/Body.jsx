@@ -14,7 +14,10 @@ import PermMissingElem from './algorithms/PermMissingElem';
 import FrogJump from './algorithms/FrogJump';
 
 // Import Math Applied files
+// Geometry algorithms
 import Lines from './math/geometry/Lines';
+// Computational algorithms
+import BinaryConversion from './math/computational/BinaryConversion';
 
 export default class Body extends Component {
 
@@ -31,7 +34,8 @@ export default class Body extends Component {
                 FrogJump: <FrogJump />,
             },
             maths: {
-                Lines: <Lines />
+                Lines: <Lines />,
+                BinaryConversion: <BinaryConversion />
             }
         }
     }
