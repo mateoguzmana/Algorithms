@@ -9,5 +9,10 @@ export default (MathsJsonList = [
         id: "BinaryConversion",
         name: "Binary Conversion",
         author: "Mateo Guzmán"
+    },
+    {
+        id: "UserClicks",
+        name: "User Clicks",
+        author: "Mateo Guzmán"
     }
 ]);

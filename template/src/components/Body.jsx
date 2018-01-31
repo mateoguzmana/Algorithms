@@ -16,6 +16,7 @@ import FrogJump from './algorithms/FrogJump';
 // Import Math Applied files
 // Geometry algorithms
 import Lines from './math/geometry/Lines';
+import UserClicks from './math/geometry/UserClicks';
 // Computational algorithms
 import BinaryConversion from './math/computational/BinaryConversion';
 
@@ -35,7 +36,8 @@ export default class Body extends Component {
             },
             maths: {
                 Lines: <Lines />,
-                BinaryConversion: <BinaryConversion />
+                BinaryConversion: <BinaryConversion />,
+                UserClicks: <UserClicks />
             }
         }
     }
