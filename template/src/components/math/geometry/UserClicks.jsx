@@ -6,11 +6,30 @@ export default class UserClicks extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            seconds: 0,
             points: 0,
             positions: [],
-            recording: false
+            recording: false,
+            play: false,
+            runningRecord: false,
+            runChronometer: false
         };
         this.createPoints = this.createPoints.bind(this);
+    }
+
+    componentDidMount() {
+        this.startChronometer();
+    }
+
+    startChronometer() {
+        setInterval(() => {
+            this.setState({
+                seconds: this.state.runChronometer ? 
+                    this.state.seconds + 1 
+                    : 
+                    this.state.seconds
+            })
+        }, 1000)
     }
 
     getMousePos(canvas, evt) {
@@ -36,7 +55,7 @@ export default class UserClicks extends Component {
         positions.push({
             x: pos.x,
             y: pos.y,
-            hour: new Date()
+            second: this.state.seconds
         });
 
         this.setState({
@@ -48,8 +67,14 @@ export default class UserClicks extends Component {
     }
 
     setFalse() {
+        let c = this.refs.recordingCanvas;
+        let ctx = c.getContext("2d");
+        ctx.clearRect(0, 0, c.width, c.height);
+
         this.setState({
-            recording: false
+            recording: false,
+            play: true,
+            runChronometer: false
         });
     }
 
@@ -60,6 +85,9 @@ export default class UserClicks extends Component {
 
         this.setState({
             recording: true,
+            play: false,
+            runningRecord: false,
+            runChronometer: true,
             points: 0,
             positions: []
         });
@@ -67,6 +95,27 @@ export default class UserClicks extends Component {
 
     toggleRecord() {
         this.state.recording ? this.setFalse() : this.setTrue()
+    }
+
+    play() {
+        this.setState({
+            runningRecord: true
+        });
+
+        let c = this.refs.recordingCanvas;
+        let ctx = c.getContext("2d");
+
+        this.state.positions.map((point, index) => {
+            if (index == 0) {
+                ctx.fillRect(point.x, point.y, 10, 10);
+                ctx.stroke();
+            } else {
+                setTimeout(() => {
+                    ctx.fillRect(point.x, point.y, 10, 10);
+                    ctx.stroke();
+                }, 2000);
+            }
+        })
     }
 
     render() {
@@ -84,14 +133,34 @@ export default class UserClicks extends Component {
                             style={{ display: this.state.recording ? 'block' : 'none' }}
                         >
                         </canvas>
+                        <canvas
+                            ref="recordingCanvas"
+                            className="canvas"
+                            style={{ display: this.state.runningRecord ? 'block' : 'none' }}
+                        >
+                        </canvas>
                     </div>
                     <div className="col-sm-6">
-                        <button
-                            onClick={() => this.toggleRecord()}
-                            className={this.state.recording ? 'btn btn-danger' : 'btn btn-info'}
-                        >
-                            {this.state.recording ? 'Stop' : 'Record'}
+                        <div className="col-sm-3">
+                            <button
+                                onClick={() => this.toggleRecord()}
+                                className={this.state.recording ? 'btn btn-danger' : 'btn btn-info'}
+                            >
+                                {this.state.recording ? 'Stop' : 'Record'}
+                            </button>
+                        </div>
+                        <div className="col-sm-3">
+                            <button
+                                onClick={() => this.play()}
+                                className={'btn btn-success'}
+                                style={{ display: this.state.play ? 'block' : 'none' }}
+                            >
+                                Play
                         </button>
+                            <div className="col-sm-6">
+                                <h2>{this.state.seconds}</h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
