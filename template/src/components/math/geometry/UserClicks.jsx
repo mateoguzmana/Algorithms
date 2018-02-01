@@ -74,7 +74,8 @@ export default class UserClicks extends Component {
         this.setState({
             recording: false,
             play: true,
-            runChronometer: false
+            runChronometer: false,
+            seconds: 0
         });
     }
 
@@ -89,7 +90,8 @@ export default class UserClicks extends Component {
             runningRecord: false,
             runChronometer: true,
             points: 0,
-            positions: []
+            positions: [],
+            seconds: 0
         });
     }
 
@@ -99,22 +101,29 @@ export default class UserClicks extends Component {
 
     play() {
         this.setState({
-            runningRecord: true
+            runningRecord: true,
+            runChronometer: true
         });
 
         let c = this.refs.recordingCanvas;
         let ctx = c.getContext("2d");
+        let lastPosition = this.state.positions.length - 1;
 
         this.state.positions.map((point, index) => {
-            if (index == 0) {
-                ctx.fillRect(point.x, point.y, 10, 10);
-                ctx.stroke();
-            } else {
                 setTimeout(() => {
                     ctx.fillRect(point.x, point.y, 10, 10);
                     ctx.stroke();
-                }, 2000);
-            }
+
+                    if(index == lastPosition) {
+                        setTimeout(() => {
+                            this.setState({
+                                runningRecord: false,
+                                runChronometer: false,
+                                seconds: 0
+                            });
+                        }, 1000);
+                    }
+                }, point.second * 1000);
         })
     }
 
